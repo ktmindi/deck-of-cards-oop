@@ -1,0 +1,2 @@
+attributes = what a class "contains"
+methods = what a class "does"
