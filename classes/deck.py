@@ -1,28 +1,21 @@
 from classes.card import Card
+from random import shuffle
 
 class Deck:
 
 
     def __init__( self ):
-        suits = [ "spades" , "hearts" , "clubs" , "diamonds" ]
-        self.cards = [] #empty list
+        self.cards = []
+        for i in range(2,15):
+            for j in range(4):
+                self.cards.append(Card(i,j))
+        shuffle(self.cards)
 
-        for s in suits:
-            for i in range(1,14):
-                str_val = ""
-                if i == 1:
-                    str_val = "Ace"
-                elif i == 11:
-                    str_val = "Jack"
-                elif i == 12:
-                    str_val = "Queen"
-                elif i == 13:
-                    str_val = "King"
-                else:
-                    str_val = str(i)
-                self.cards.append(Card( s , i , str_val ) )
+    def remove_card(self):
+        if len(self.cards) == 0:
+            return
+        return self.cards.pop()
 
     def show_cards(self):
         for card in self.cards:
             card.card_info()
-
